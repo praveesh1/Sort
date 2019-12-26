@@ -1,0 +1,20 @@
+.my_class {
+    height: 35px;
+    width: 35px;
+  }
+ 
+  .cssClass {
+    background: lightgray !important;
+  }
+  .myButton{
+    margin-left: 900px;
+    margin-bottom: 50px;
+    
+  }
+  .customDialog .ui-dialog-content {
+      padding : 50px !important;
+  }
+
+  .customDialog {
+    background: green;
+}

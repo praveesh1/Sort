@@ -1,0 +1,82 @@
+<p-dialog header="Multi Sort" [(visible)]="display" [modal]="true"  
+         styleClass="customDialog" wIdth="600" > 
+        <div class="top-container">
+            <div class="row">
+                <div class="col-lg-2">
+          <button [ngClass]="status ? 'fas fa-sort-amount-up-alt ' : 'fas fa-sort-amount-down'" class="my_class"
+            [disabled]="isDisabled" (click)="clickEvent()" ></button> </div>
+            
+
+
+          <div class="col-lg-4">
+
+          <p-dropdown 
+          [options]="cols"
+          [(ngModel)]="colName"
+          [style]="{'wIdth':'100%'}"
+          appendTo="body"
+          placeholder="Criteria 1"
+          (onChange)="columnselection(colName)"> 
+            
+
+             
+        </p-dropdown>
+      </div>
+        <div class="col-lg-4">
+        <p-dropdown 
+        [options]="cols"
+        [(ngModel)]="colName2"
+        [style]="{'wIdth':'100%'}"
+        appendTo="body"
+        (onChange)="columnselection2(colName2)"
+        placeholder="Criteria 2"
+        [disabled]= "drop">
+      </p-dropdown> </div>
+    </div> 
+            
+        </div>
+        <p-footer>
+            <button type="button" pButton icon="pi pi-check" (click)="func()" label="Apply"></button>
+            <button type="button" pButton icon="pi pi-close" (click)="display=false" label="Cancel" class="ui-button-secondary"></button>
+        </p-footer>
+</p-dialog>
+<button type="button" (click)="showDialog()" pButton icon="pi pi-info-circle" label="Sort Table" class="myButton"></button>
+
+<p-table #sortTable [columns]="cols" [value]="cars">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns.slice(0, 1)" [ngClass]="{
+            cssClass: this.colName == 'id' || this.colName == 'year'
+          }">
+          <div *ngFor="let col of columns.slice(0, 2)">
+            {{ col.label }}
+          </div>
+        </th>
+        <th *ngFor="let col of columns.slice(2, 3)" [ngClass]="{
+            cssClass: this.colName == 'brand'
+          }">
+          {{ col.label }}
+        </th>
+        <th *ngFor="let col of columns.slice(3, 4)" [ngClass]="{
+            cssClass: this.colName == 'color'
+          }">
+          {{ col.label }}
+        </th>
+        
+        
+      </tr>
+
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr>
+        <td *ngFor="let col of columns.slice(0, 1)">
+          <div *ngFor="let col of columns.slice(0, 2)">
+            {{ rowData[col.value] }}
+          </div>
+        </td>
+        <td *ngFor="let col of columns.slice(2, 4)">
+          {{ rowData[col.value] }}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
