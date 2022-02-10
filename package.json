@@ -106,7 +106,7 @@
     "jest-html-reporter": "2.4.2",
     "jest-marbles": "2.0.0",
     "jest-preset-angular": "6.0.0",
-    "node-sass": "4.5.3",
+    "node-sass": "7.0.0",
     "phantomjs-prebuilt": "2.1.15",
     "protractor": "5.1.2",
     "protractor-jasmine2-screenshot-reporter": "0.4.1",
