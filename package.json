@@ -54,7 +54,7 @@
     "jquery": "3.2.1",
     "leaflet-map": "0.2.1",
     "lodash": "4.17.11",
-    "moment": "2.18.1",
+    "moment": "2.29.2",
     "ngrx-store-freeze": "0.2.4",
     "ngrx-store-localstorage": "5.0.1",
     "ngx-cookie": "2.0.1",
